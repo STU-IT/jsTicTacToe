@@ -17,20 +17,46 @@ window.addEventListener("load", () => {
                     event.target.innerHTML = turn;
                     
                     // TODO check om spilleren har vundet
-                    
-                    if (turn == 'x')
+                    if (
+                        (ul.innerHTML.trim() != "" && ul.innerHTML == uc.innerHTML && uc.innerHTML == ur.innerHTML)
+                        ||
+                        (cl.innerHTML.trim() != "" && cl.innerHTML == cc.innerHTML && cc.innerHTML == cr.innerHTML)
+                        ||
+                        (ll.innerHTML.trim() != "" && ll.innerHTML == lc.innerHTML && lc.innerHTML == lr.innerHTML)
+                        
+                        ||
+                        (ul.innerHTML.trim() != "" && ul.innerHTML == cl.innerHTML && cl.innerHTML == ll.innerHTML)
+                        ||
+                        (uc.innerHTML.trim() != "" && uc.innerHTML == cc.innerHTML && cc.innerHTML == lc.innerHTML)
+                        ||
+                        (ur.innerHTML.trim() != "" && ur.innerHTML == cr.innerHTML && cr.innerHTML == lr.innerHTML)
+
+                        ||
+                        (ul.innerHTML.trim() != "" && ul.innerHTML == cc.innerHTML && cc.innerHTML == lr.innerHTML) 
+                        ||
+                        (ll.innerHTML.trim() != "" && ll.innerHTML == cc.innerHTML && cc.innerHTML == ur.innerHTML)
+                    )
                     {
-                        turn = 'o';
-                        // TODO  fjern et o i o_er
-                        o_er.style.border = "2px red solid";
-                        x_er.style.border = "none";
+                        setTimeout(function(){
+                            confirm(turn + " har vundet! Vil du prøve igen?");
+                        }, 100);
                     }
                     else
                     {
-                        turn = 'x';
-                        // TODO  fjern et x i x_er
-                        x_er.style.border = "2px red solid";
-                        o_er.style.border = "none";
+                        if (turn == 'x')
+                        {
+                            turn = 'o';
+                            // TODO  fjern et o i o_er
+                            o_er.style.border = "2px red solid";
+                            x_er.style.border = "none";
+                        }
+                        else
+                        {
+                            turn = 'x';
+                            // TODO  fjern et x i x_er
+                            x_er.style.border = "2px red solid";
+                            o_er.style.border = "none";
+                        }
                     }
                 }
                 
