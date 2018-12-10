@@ -11,27 +11,28 @@ window.addEventListener("load", () => {
         e.addEventListener("click",
             (event) => {
 
-                // check om feltet er ledigt? Man kan ikke sætte en brik i et felt der er optaget
-
-                event.target.innerHTML = turn;
-                
-                // check om spilleren har vundet
-                
-                if (turn == 'x')
+                // DONE! check om feltet er ledigt? Man kan ikke sætte en brik i et felt der er optaget
+                if (event.target.innerHTML.trim() == "")
                 {
-                    turn = 'o';
-                    // fjern et o i o_er
-                    o_er.style.border = "2px red solid";
-                    x_er.style.border = "none";
+                    event.target.innerHTML = turn;
+                    
+                    // TODO check om spilleren har vundet
+                    
+                    if (turn == 'x')
+                    {
+                        turn = 'o';
+                        // TODO  fjern et o i o_er
+                        o_er.style.border = "2px red solid";
+                        x_er.style.border = "none";
+                    }
+                    else
+                    {
+                        turn = 'x';
+                        // TODO  fjern et x i x_er
+                        x_er.style.border = "2px red solid";
+                        o_er.style.border = "none";
+                    }
                 }
-                else
-                {
-                    turn = 'x';
-                    // fjern et x i x_er
-                    x_er.style.border = "2px red solid";
-                    o_er.style.border = "none";
-                }
-
                 
 
             })
