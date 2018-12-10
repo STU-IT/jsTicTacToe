@@ -1,5 +1,7 @@
 window.addEventListener("load", () => {
 
-    var board = [[ul, uc, ur], [cl, cc, cr], [ll, lc, lr]]
+    board = [[ul, uc, ur], [cl, cc, cr], [ll, lc, lr]]
 
+    turn = 'x'
+    x_er.style.border = "2 red solid";
 });
